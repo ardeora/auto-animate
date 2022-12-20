@@ -46,9 +46,13 @@ export const createAutoAnimateDirective = () => {
     el: HTMLElement,
     options: Accessor<Partial<AutoAnimateOptions> | AutoAnimationPlugin | true>
   ) => {
+    console.log("yoooo")
     let optionsValue = options()
     let resolvedOptions: Partial<AutoAnimateOptions> | AutoAnimationPlugin = {}
     if (optionsValue !== true) resolvedOptions = optionsValue
-    autoAnimate(el, resolvedOptions)
+    onMount(() => {
+      const controller = autoAnimate(el, resolvedOptions)
+      return () => controller.disable()
+    })
   }
 }
