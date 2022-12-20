@@ -46,6 +46,10 @@
       "import": "./solid/index.mjs",
       "types": "./solid/index.d.ts"
     },
+    "./solid": {
+      "import": "./solid/index.mjs",
+      "types": "./solid/index.d.ts"
+    },
     ".": {
       "import": "./index.mjs",
       "default": "./index.mjs"
